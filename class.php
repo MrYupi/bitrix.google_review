@@ -78,9 +78,10 @@ class GoogleReviewBitrix extends CBitrixComponent
 
     public function executeComponent()
     {
-
-        $this->arResult['ITEMS'] = $this->collectData();
-        self::debug($this->arResult['ITEMS']);
+        if($this->startResultCache($this->arParams['CACHE_TIME'], false))
+        {
+            $this->arResult['ITEMS'] = $this->collectData();
+        }
         if($this->arParams['LOAD_TEMPLATE'] == 'Y')
         {
             $this->includeComponentTemplate();
