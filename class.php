@@ -83,8 +83,9 @@ class GoogleReviewBitrix extends CBitrixComponent
             if($this->startResultCache($this->arParams['CACHE_TIME'], false))
             {
                 $this->arResult['ITEMS'] = $this->collectData();
+                $this->includeComponentTemplate();
             }
-            $this->includeComponentTemplate();
+           
         }
 
     }
